@@ -34,11 +34,12 @@ CREATE TABLE likes(
 );
 
 CREATE TABLE comments(
-  id INTEGER NOT NULL,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   idUser INTEGER NOT NULL,
   idPost INTEGER NOT NULL,
   content TEXT NOT NULL,
-  PRIMARY KEY(id, idUser, idPost)
+  
+  UNIQUE(id, idUser, idPost)
 );
 
 CREATE TRIGGER updatePostupdatedAt_Trigger
