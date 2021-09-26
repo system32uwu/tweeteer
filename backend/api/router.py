@@ -3,6 +3,7 @@ from flask import Blueprint
 from flask.json import jsonify
 from api.v1.user import userRouter
 from api.v1.post import postRouter
+from api.v1.auth import authRouter
 
 apiRouter = Blueprint('api', __name__, url_prefix='/api') #http://localhost:5000/api
 
@@ -12,6 +13,7 @@ apiRouter.register_blueprint(v1Router) # http://localhost:5000/api/v1
 
 v1Router.register_blueprint(userRouter) # http://localhost:5000/api/v1/user
 v1Router.register_blueprint(postRouter) # http://localhost:5000/api/v1/post
+v1Router.register_blueprint(authRouter) # http://localhost:5000/api/v1/auth
 
 @apiRouter.errorhandler(sqlite3.IntegrityError)
 def integrityError(e: sqlite3.IntegrityError):
