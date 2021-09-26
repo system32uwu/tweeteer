@@ -1,14 +1,4 @@
-# Tweeteer - an innovative social network
-
-Tweeteer aims to become the #1 social network through a vast set of modern features, such as:
-
-- creating an account
-- posting
-- commenting posts
-- liking posts
-
-
-## Project Structure
+# Project Structure
 
 ```sh
 tweeteer-
@@ -18,7 +8,7 @@ tweeteer-
 		 |- postman: postman requests
 ```
 
-### backend
+# backend
 
 ```sh
 backend-
@@ -29,16 +19,14 @@ backend-
 		|- server.py: flask web server
 ```
 
-#### backend/api
-
+## backend/api
 ```sh
 backend/api-
 			|- v1: contains the first version of the api
 			|- router.py: contains the main router for the api and error handlers.
 ```
 
-#### backend/api/v1
-
+### backend/api/v1
 ```sh
 backend/api/v1-
 			   |- auth.py: basic authentication functions (login, logout)
@@ -46,8 +34,7 @@ backend/api/v1-
 			   |- user.py: user CRUD
 ```
 
-#### backend/models
-
+### backend/models
 ```sh
 backend/models-
 			   |- shared.py: contains the database connection
