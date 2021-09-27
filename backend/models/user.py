@@ -121,7 +121,7 @@ class User:
             return user, token
 
     @classmethod
-    def verifyToken(token:str) -> int: # return the id of the user
+    def verifyToken(cls, token:str) -> int: # return the id of the user
         payload = jwt.decode(token,Config.SECRET_KEY, algorithms=["HS256"])
         return payload['sub']
 
