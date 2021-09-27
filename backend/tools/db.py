@@ -8,6 +8,7 @@ schemaPath = f'{here}/tweeteer.sql'
 def getDb():
     con = sqlite3.connect(dbPath, check_same_thread=False, detect_types=sqlite3.PARSE_DECLTYPES)
     con.execute('PRAGMA FOREIGN_KEYS=ON')
+    con.set_trace_callback(print)
     return con
 
 if __name__ == '__main__':

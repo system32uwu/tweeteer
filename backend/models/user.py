@@ -136,3 +136,13 @@ class User:
         self.posts = [r[0] for r in result]
 
         return self.posts
+
+# example of sql injection vulnerable code:
+# @classmethod
+#     def login(cls, email:str, password:str):
+
+#         statement = f"""
+#         SELECT * FROM user 
+#         WHERE 
+#         email = '{email}' AND password = '{password}'
+#         """
