@@ -48,3 +48,5 @@ Tweeteer aims to become the #1 social network through a vast set of modern featu
  |- user.py: contains the user class, with CRUD functions
  |- post.py: contains the post and comment classes, with CRUD functions
 ```
+
+[Walkthrough](https://docs.google.com/presentation/d/1AeGjL2gGYHjohZK8petAJ87p2tiBSyt2Qem_fufOvAM/edit?usp=sharing)
