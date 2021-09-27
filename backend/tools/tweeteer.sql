@@ -6,15 +6,6 @@ CREATE TABLE user(
   photoUrl TEXT DEFAULT NULL
 );
 
-CREATE TABLE follows(
-  user1 INTEGER NOT NULL,
-  user2 INTEGER NOT NULL,
-  
-  PRIMARY KEY(user1, user2),
-  FOREIGN KEY(user1) REFERENCES user(id),
-  FOREIGN KEY(user2) REFERENCES user(id)
-);
-
 CREATE TABLE post(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   idUser INTEGER NOT NULL,
@@ -23,14 +14,16 @@ CREATE TABLE post(
   updatedAt datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
   
   UNIQUE(id, idUser),
-  FOREIGN KEY(idUser) REFERENCES user(id)
+  FOREIGN KEY(idUser) REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE likes(
   idUser INTEGER NOT NULL,
   idPost INTEGER NOT NULL,
   
-  PRIMARY KEY(idUser, idPost)
+  PRIMARY KEY(idUser, idPost),
+  FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE CASCADE,
+  FOREIGN KEY (idPost) REFERENCES post(id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments(
@@ -39,7 +32,9 @@ CREATE TABLE comments(
   idPost INTEGER NOT NULL,
   content TEXT NOT NULL,
   
-  UNIQUE(id, idUser, idPost)
+  UNIQUE(id, idUser, idPost),
+  FOREIGN KEY (idUser) REFERENCES user(id) ON DELETE CASCADE,
+  FOREIGN KEY (idPost) REFERENCES post(id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER updatePostupdatedAt_Trigger
