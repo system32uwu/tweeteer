@@ -4,7 +4,6 @@ from config import Config
 import jwt
 from dataclasses import dataclass
 
-
 @dataclass
 class User:
     id: int
@@ -112,7 +111,7 @@ class User:
 
             payload = {
                 'iat': now,
-                'exp': now + timedelta(days=7),
+                'exp': now + timedelta(days=365),
                 'sub': user.id
             }
 
@@ -121,7 +120,7 @@ class User:
             return user, token
 
     @classmethod
-    def verifyToken(token:str) -> int: # return the id of the user
+    def verifyToken(cls, token:str) -> int: # return the id of the user
         payload = jwt.decode(token,Config.SECRET_KEY, algorithms=["HS256"])
         return payload['sub']
 
